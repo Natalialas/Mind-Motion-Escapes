@@ -15,4 +15,15 @@ export class ToursService {
       where: { id },
     });
   }
+
+  public async getByPhrase(searchPhrase: string): Promise<Tour | null> {
+    console.log(searchPhrase);
+    return this.prismaService.tour.findFirst({
+      where: {
+        name: {
+          contains: searchPhrase,
+        },
+      },
+    });
+  }
 }
