@@ -68,7 +68,7 @@ async function main() {
     },
   });
 
-  await prisma.user.create({
+  const user2 = await prisma.user.create({
     data: {
       name: 'Admin',
       surname: 'User',
@@ -95,22 +95,24 @@ async function main() {
     },
   });
 
-  // Create bookings
-  const booking1 = await prisma.booking.create({
+  // Create cart items
+  const cartItem1 = await prisma.cartItem.create({
     data: {
-      tourId: tour1.id,
       userId: user1.id,
-      status: 'Confirmed',
+      tourId: tour1.id,
+      numberOfPeople: 2,
+      price: tour1.price * 2,
+      comment: 'Looking forward to this trip!',
     },
   });
 
-  // Create payments
-  await prisma.payment.create({
+  const cartItem2 = await prisma.cartItem.create({
     data: {
-      amount: 500,
-      method: 'Credit Card',
-      status: 'Paid',
-      bookingId: booking1.id,
+      userId: user1.id,
+      tourId: tour2.id,
+      numberOfPeople: 1,
+      price: tour2.price,
+      comment: "Can't wait for the beach!",
     },
   });
 
@@ -123,8 +125,10 @@ async function main() {
       phone: '123456789',
       address: '123 Main St, New York, NY',
       finalAmount: 800,
-      tours: {
-        connect: [{ id: tour1.id }, { id: tour2.id }],
+      userId: user1.id,
+      status: 'Pending',
+      items: {
+        connect: [{ id: cartItem1.id }, { id: cartItem2.id }],
       },
     },
   });
