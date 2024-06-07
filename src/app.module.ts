@@ -12,21 +12,27 @@ import configuration from './config/configuration';
 import { ToursModule } from './tours/tours.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { OrdersModule } from './orders/orders.module';
-import { CartItemsModule } from './cart-items/cart-items.module';
 import { CartitemsController } from './cartitems/cartitems.controller';
 import { CartitemsModule } from './cartitems/cartitems.module';
+import { UsersModule } from './users/users.module';
+import { CategoriesModule } from './categories/categories.module';
+import { ReviewsModule } from './reviews/reviews.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ToursModule,
     PrismaModule,
+    OrdersModule,
+    CartitemsModule,
+    UsersModule,
+    CategoriesModule,
+    ReviewsModule,
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
     }),
-    OrdersModule,
-    CartItemsModule,
-    CartitemsModule,
+    AuthModule,
   ],
   controllers: [AppController, CartitemsController],
   providers: [AppService],
