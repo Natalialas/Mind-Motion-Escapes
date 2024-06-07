@@ -21,18 +21,18 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ToursModule,
     PrismaModule,
+    ToursModule,
     OrdersModule,
     CartitemsModule,
     UsersModule,
     CategoriesModule,
     ReviewsModule,
+    AuthModule,
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
     }),
-    AuthModule,
   ],
   controllers: [AppController, CartitemsController],
   providers: [AppService],
