@@ -12,7 +12,6 @@ import configuration from './config/configuration';
 import { ToursModule } from './tours/tours.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { OrdersModule } from './orders/orders.module';
-import { CartitemsController } from './cartitems/cartitems.controller';
 import { CartitemsModule } from './cartitems/cartitems.module';
 import { UsersModule } from './users/users.module';
 import { CategoriesModule } from './categories/categories.module';
@@ -34,7 +33,7 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
     }),
   ],
-  controllers: [AppController, CartitemsController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule implements NestModule {
