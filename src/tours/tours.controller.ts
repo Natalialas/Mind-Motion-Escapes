@@ -12,7 +12,7 @@ import { Tour } from '@prisma/client';
 export class ToursController {
   constructor(private toursService: ToursService) {}
 
-  @Get()
+  @Get('/')
   async getAll(): Promise<Tour[]> {
     return this.toursService.getAll();
   }
