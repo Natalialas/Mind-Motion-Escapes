@@ -1,0 +1,45 @@
+@import '../../../styles/settings.scss';
+
+// Topbar.module.scss
+
+.topbar {
+    font-family: $font-text;
+    background-color: $color-creamy;
+    padding: 1rem 0;
+    border-bottom: 1px solid $color-orange;
+    color: $color-orange;
+}
+
+.logo {
+    font-weight: $font-bold;
+    font-size: 1.5rem;
+    color: $color-orange;
+}
+
+.navItems {
+    color: $color-orange;
+    font-weight: $font-regular;
+    font-size: 1rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #007bff;
+    }
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    color: $color-orange;
+}
+  
+  
