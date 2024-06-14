@@ -2,18 +2,18 @@ import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import styles from './Topbar.module.scss'; // Import stylów modułowych
+import styles from './TopBar.module.scss';
 
-const Topbar = () => {
+const TopBar = () => {
   return (
     <Navbar expand="lg" className={styles.topbar}>
       <Container>
-        <Navbar.Brand href="#home" className={styles.logo}>
+        <Navbar.Brand href="#home" className={styles.logo} style={{ color: 'rgb(249,115,0)' }}>
           Mind&Motion Escapes
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={`${styles.navItems} ml-auto`}>
+          <Nav className={`${styles.navItems} ml-auto`} >
             <Nav.Link href="#home" className={styles.link}>Home</Nav.Link>
             <Nav.Link href="#adventures" className={styles.link}>Adventures</Nav.Link>
             <Nav.Link href="#about" className={styles.link}>About us</Nav.Link>
@@ -28,4 +28,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default TopBar;

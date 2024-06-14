@@ -10,14 +10,13 @@
     color: $color-orange;
 }
 
-.logo {
+.logo  {
     font-weight: $font-bold;
     font-size: 1.5rem;
     color: $color-orange;
 }
 
 .navItems {
-    color: $color-orange;
     font-weight: $font-regular;
     font-size: 1rem;
     margin-left: 1rem;
@@ -26,20 +25,18 @@
     &:hover {
       color: #007bff;
     }
+
+    .link {
+        display: flex;
+        align-items: center;
+    }
+    
+    .icon {
+        margin-right: 0.5rem;
+    }
 }
 
 .ml-auto {
     margin-left: auto;
 }
 
-.link {
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    margin-right: 0.5rem;
-    color: $color-orange;
-}
-  
-  

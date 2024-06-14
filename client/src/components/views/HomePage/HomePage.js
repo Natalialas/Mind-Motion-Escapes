@@ -1,4 +1,4 @@
-import Topbar from '../../layout/Topbar/Topbar';
+import Topbar from '../../layout/TopBar/TopBar';
 
 const HomePage = () => {
     return (
