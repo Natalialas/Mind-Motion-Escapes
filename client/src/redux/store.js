@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import {thunk} from 'redux-thunk';
 import initialState from './initialState';
+import toursReducer from './productsRedux';
 
 const subreducers = {
-  
+  tours: toursReducer,
 };
 
 const reducer = combineReducers(subreducers);
