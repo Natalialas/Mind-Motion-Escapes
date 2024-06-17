@@ -31,7 +31,7 @@ export const loadToursRequest = () => {
   return async (dispatch) => {
     const requestName = DATA_TOURS;
     dispatch(startRequest({ name: requestName }));
-
+    
     try {
       let res = await axios.get(`${API_URL}/tours`);
       dispatch(fetchDataTours(res.data));
