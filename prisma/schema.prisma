@@ -15,10 +15,10 @@ enum Role {
 model Tour {
   id          String    @id @default(uuid())
   name        String
-  description String
+  description String   @db.VarChar(1000)
   price       Int
   duration    Int
-  date        String
+  dat         String
   location    String
   photo       String
   category    Category  @relation(fields: [categoryId], references: [id])

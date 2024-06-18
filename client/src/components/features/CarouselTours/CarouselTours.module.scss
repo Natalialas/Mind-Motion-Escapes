@@ -1,0 +1,18 @@
+.carousel {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .carouselGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carouselItem {
+    flex: 1;
+    padding: 10px;
+    max-width: 500px; /* Maksymalna szerokość dla elementu karuzeli */
+  }
+  

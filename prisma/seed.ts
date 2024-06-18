@@ -42,7 +42,7 @@ async function main() {
       location: 'Andes Mountains, South America',
       photo: 'mountain_hiking.jpg',
       category: { connect: { id: categoryAdventure.id } },
-      date: 'Jun 25 - Jul 05, 2025',
+      dat: 'Jun 25 - Jul 05, 2025',
     },
     {
       name: 'Tropical Oasis Escape',
@@ -53,7 +53,7 @@ async function main() {
       location: 'Fiji Islands',
       photo: 'beach_relaxation.jpg',
       category: { connect: { id: categoryRelaxation.id } },
-      date: 'Sep 20-24, 2025',
+      dat: 'Sep 20-24, 2025',
     },
     {
       name: 'Serengeti Wildlife Expedition',
@@ -64,7 +64,7 @@ async function main() {
       location: 'Serengeti National Park, Tanzania',
       photo: 'wildlife_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      date: 'JUL 15-20, 2025',
+      dat: 'JUL 15-20, 2025',
     },
     {
       name: 'Eternal Rome',
@@ -75,7 +75,7 @@ async function main() {
       location: 'Rome, Italy',
       photo: 'historical_landmarks.jpg',
       category: { connect: { id: categoryHeritage.id } },
-      date: 'OCT 21-24, 2024',
+      dat: 'OCT 21-24, 2024',
     },
     {
       name: 'Exclusive Island Getaway',
@@ -86,7 +86,7 @@ async function main() {
       location: 'Bora Bora, French Polynesia',
       photo: 'island_getaway.jpg',
       category: { connect: { id: categoryLuxury.id } },
-      date: 'JUN 09-13, 2025',
+      dat: 'JUN 09-13, 2025',
     },
     {
       name: 'Surf Break',
@@ -97,7 +97,7 @@ async function main() {
       location: 'Hawaii, Waikiki Beach',
       photo: 'surf_break.jpg',
       category: { connect: { id: categoryAdventure.id } },
-      date: 'JUN 09-16, 2025',
+      dat: 'JUN 09-16, 2025',
     },
     {
       name: 'Tropical Yoga',
@@ -108,7 +108,7 @@ async function main() {
       location: 'Seychelles',
       photo: 'tropical_yoga.jpg',
       category: { connect: { id: categoryRelaxation.id } },
-      date: 'JUN 09-12, 2025',
+      dat: 'JUN 09-12, 2025',
     },
     {
       name: 'Northern Lights Expedition',
@@ -119,7 +119,7 @@ async function main() {
       location: 'Lapland, Finland',
       photo: 'northern_lights.jpg',
       category: { connect: { id: categoryAdventure.id } },
-      date: 'JAN 10-14, 2026',
+      dat: 'JAN 10-14, 2026',
     },
     {
       name: 'Amazon River Adventure',
@@ -130,7 +130,7 @@ async function main() {
       location: 'Amazonia, Brazil',
       photo: 'amazon_river.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      date: 'MAR 15-22, 2026',
+      dat: 'MAR 15-22, 2026',
     },
     {
       name: 'Safari in Masai Mara',
@@ -141,7 +141,7 @@ async function main() {
       location: 'Masai Mara, Kenya',
       photo: 'masai_mara_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      date: 'FEB 20-28, 2026',
+      dat: 'FEB 20-28, 2026',
     },
   ];
 
@@ -173,7 +173,7 @@ async function main() {
     data: {
       name: 'John',
       surname: 'Doe',
-      email: 'john.doe@example.com',
+      email: 'jon.doe@example.com',
       phone: '123456789',
       country: 'USA',
       city: 'New York',
@@ -247,8 +247,6 @@ async function main() {
       },
     },
   });
-
-  await prisma.$disconnect();
 }
 
 main()

@@ -1,11 +1,4 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsNumber,
-  Min,
-  IsUUID,
-  IsDateString,
-} from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, Min, IsUUID } from 'class-validator';
 
 export class CreateTourDTO {
   @IsNotEmpty()
@@ -39,6 +32,6 @@ export class CreateTourDTO {
   categoryId: string;
 
   @IsNotEmpty()
-  @IsDateString()
-  date: Date | string;
+  @IsString()
+  dat: string;
 }
