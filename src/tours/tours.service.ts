@@ -23,8 +23,18 @@ export class ToursService {
   }
 
   public async createTour(tourData: CreateTourDTO): Promise<Tour> {
+    const { categoryId, ...data } = tourData;
     try {
-      return await this.prismaService.tour.create({ data: tourData });
+      return await this.prismaService.tour.create({
+        data: {
+          ...data,
+          category: {
+            connect: {
+              id: categoryId,
+            },
+          },
+        },
+      });
     } catch (error) {
       if (error.code === 'P2002') {
         throw new ConflictException('Tour with the same ID already exists');
@@ -34,10 +44,18 @@ export class ToursService {
   }
 
   public async updateTour(id: string, tourData: UpdateTourDTO): Promise<Tour> {
+    const { categoryId, ...data } = tourData;
     try {
       return await this.prismaService.tour.update({
         where: { id },
-        data: tourData,
+        data: {
+          ...data,
+          category: {
+            connect: {
+              id: categoryId,
+            },
+          },
+        },
       });
     } catch (error) {
       if (error.code === 'P2025') {

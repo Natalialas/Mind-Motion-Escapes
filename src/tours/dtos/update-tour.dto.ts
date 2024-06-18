@@ -1,46 +1,33 @@
-import {
-  IsString,
-  IsNotEmpty,
-  IsNumber,
-  Min,
-  IsUUID,
-  IsOptional,
-} from 'class-validator';
+import { IsString, IsNumber, Min, IsUUID, IsOptional } from 'class-validator';
 
 export class UpdateTourDTO {
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  name: string;
+  name?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  description: string;
+  description?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   @Min(0)
-  price: number;
+  price?: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   @Min(1)
-  duration: number;
+  duration?: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  location: string;
+  location?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  photo: string;
+  photo?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsUUID()
-  categoryId: string;
-
-  @IsOptional()
-  createdAt?: Date;
-
-  @IsOptional()
-  updatedAt?: Date;
+  categoryId?: string;
 }
