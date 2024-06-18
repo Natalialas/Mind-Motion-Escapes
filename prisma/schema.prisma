@@ -18,7 +18,7 @@ model Tour {
   description String
   price       Int
   duration    Int
-  date        DateTime
+  date        String
   location    String
   photo       String
   category    Category  @relation(fields: [categoryId], references: [id])
