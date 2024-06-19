@@ -23,8 +23,7 @@
   font-weight: $font-bold;
   font-size: 2rem;
   color: $color-orange;
-  flex: 1;
-  text-align: center;
+  line-height: 1; /* Ustawienie line-height dla wyśrodkowania tekstu */
 }
 
 .link {

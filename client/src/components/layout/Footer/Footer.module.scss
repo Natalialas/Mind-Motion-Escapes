@@ -1,0 +1,56 @@
+.blog {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .block {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+  }
+  
+  .blockTitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+  }
+  
+  .detailsTitle {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .number {
+    font-size: 1.2rem;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  button:focus {
+    outline: 2px solid blue;
+  }
+  
+  button:hover {
+    text-decoration: none;
+  }
+  

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './TopBar.module.scss';
 
 const TopBar = () => {
@@ -10,23 +10,23 @@ const TopBar = () => {
     <Navbar expand="lg" className={styles.topbar}>
       <Container className={styles.container}>
         <div className={styles.left} style={{ color: 'rgb(249,115,0)', fontSize: '1.2rem' }}>
-          <Link to="/adventures" className={styles.link}>
+          <NavLink to="/adventures" className={styles.link} activeClassName={styles.active}>
             Adventures
-          </Link>
-          <Link to="/about" className={styles.link}>
+          </NavLink>
+          <NavLink to="/about" className={styles.link} activeClassName={styles.active}>
             About us
-          </Link>
+          </NavLink>
         </div>
-        <Navbar.Brand href="#home" className={styles.logo} style={{ color: 'rgb(249,115,0)', fontSize: '1.5rem' }}>
+        <Navbar.Brand as={NavLink} to="/" className={`${styles.logo} ${styles.link}`} style={{ color: 'rgb(249,115,0)', fontSize: '1.5rem' }}>
           Mind&Motion Escapes
         </Navbar.Brand>
         <div className={styles.right} style={{ color: 'rgb(249,115,0)', fontSize: '1.2rem' }}>
-          <Link to="/login" className={styles.link}>
+          <NavLink to="/login" className={styles.link} activeClassName={styles.active}>
             Login
-          </Link>
-          <Link to="/cart" className={styles.link}>
+          </NavLink>
+          <NavLink to="/cart" className={styles.link} activeClassName={styles.active}>
             <FontAwesomeIcon icon={faShoppingCart} />
-          </Link>
+          </NavLink>
         </div>
       </Container>
     </Navbar>

@@ -1,13 +1,15 @@
-import Topbar from '../../layout/TopBar/TopBar';
 import Header from '../../layout/Header/Header';
 import CarouselTours from '../../features/CarouselTours/CarouselTours';
+import Newsletter from '../../features/Newsletter/Newsletter';
+import Reviews from '../../features/Reviews/Reviews';
 
 const HomePage = () => {
     return (
         <div>
-         <Topbar></Topbar>
          <Header></Header>
+         <Newsletter></Newsletter>
          <CarouselTours></CarouselTours>
+         <Reviews></Reviews>
         </div>
       
     );
