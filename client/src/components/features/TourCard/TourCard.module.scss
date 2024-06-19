@@ -1,23 +1,58 @@
+@import '../../../styles/settings.scss';
+
 .tourCard {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-  }
-  
-  .cardImage {
-    width: 100%;
-    height: 300px; /* Ustalona wysokość dla obrazków */
-    object-fit: cover; /* Przycięcie obrazu, aby dopasować go do kontenera */
-  }
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.imageContainer {
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: $color-orange;
+  text-align: center;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+}
+
+.location {
+  font-size: 1.8rem;
+  margin-top: 8px;
+  font-weight: $font-semiBold;
+  text-transform: uppercase;
+}
+
+.dat {
+  font-size: 1.5rem;
+  margin-top: 8px;
+  font-weight: $font-medium;
+}
+
+.cardImage {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  filter: brightness(90%);
+  border-radius: 40px;
+}

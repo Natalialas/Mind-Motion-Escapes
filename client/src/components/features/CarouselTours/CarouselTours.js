@@ -14,24 +14,38 @@ const CarouselTours = () => {
     dispatch(loadToursRequest());
   }, [dispatch]);
 
-  const firstSixTours = allTours.slice(0, 6); // Pobieranie pierwszych 6 wycieczek
+  const firstSixTours = allTours.slice(0, 6);
   const toursCount = firstSixTours.length;
 
   const handleSelect = (selectedIndex, e) => {
     setActiveIndex(selectedIndex);
   };
 
+  const getSlides = () => {
+    const slides = [];
+    for (let i = 0; i < toursCount; i++) {
+      const slideTours = [];
+      for (let j = 0; j < 3; j++) {
+        slideTours.push(firstSixTours[(i + j) % toursCount]);
+      }
+      slides.push(slideTours);
+    }
+    return slides;
+  };
+
+  const slides = getSlides();
+
   return (
     <Carousel
       activeIndex={activeIndex}
       onSelect={handleSelect}
       className={styles.carousel}
-      interval={null}
+      interval={3000}
     >
-      {[...Array(toursCount)].map((_, index) => (
+      {slides.map((slide, index) => (
         <Carousel.Item key={index}>
           <div className={styles.carouselGroup}>
-            {firstSixTours.slice(index, index + 3).map((tour, idx) => (
+            {slide.map((tour, idx) => (
               <div className={styles.carouselItem} key={idx}>
                 <TourCard tour={tour} />
               </div>

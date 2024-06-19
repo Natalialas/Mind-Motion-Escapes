@@ -6,12 +6,14 @@ import { IMAGES_URL } from '../../../config';
 const TourCard = ({ tour }) => {
   return (
     <Card className={styles.tourCard}>
-      <div className={styles.overlay}>
-        <Card.Title>{tour.name}</Card.Title>
-        <Card.Text>{tour.location}</Card.Text>
-        <Card.Text>{tour.date}</Card.Text>
+      <div className={styles.imageContainer}>
+        <Card.Img variant="top" src={`${IMAGES_URL}/${tour.photo}`} className={styles.cardImage} />
       </div>
-      <Card.Img variant="top" src={`${IMAGES_URL}/${tour.photo}`} className={styles.cardImage} />
+      <div className={styles.overlay}>
+        <Card.Title className={styles.name}>{tour.name}</Card.Title>
+        <Card.Text className={styles.location}>{tour.location}</Card.Text>
+        <Card.Text className={styles.dat}>{tour.dat}</Card.Text>
+      </div>
     </Card>
   );
 };

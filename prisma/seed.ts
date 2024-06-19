@@ -2,6 +2,15 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.review.deleteMany({});
+  await prisma.cartItem.deleteMany({});
+  await prisma.order.deleteMany({});
+
+  await prisma.photo.deleteMany({});
+  await prisma.tour.deleteMany({});
+  await prisma.category.deleteMany({});
+
+  await prisma.user.deleteMany({});
   const categoryAdventure = await prisma.category.create({
     data: {
       name: 'Adventure',
@@ -64,7 +73,7 @@ async function main() {
       location: 'Serengeti National Park, Tanzania',
       photo: 'wildlife_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      dat: 'JUL 15-20, 2025',
+      dat: 'Jul 15-20, 2025',
     },
     {
       name: 'Eternal Rome',
@@ -75,7 +84,7 @@ async function main() {
       location: 'Rome, Italy',
       photo: 'historical_landmarks.jpg',
       category: { connect: { id: categoryHeritage.id } },
-      dat: 'OCT 21-24, 2024',
+      dat: 'Oct 21-24, 2024',
     },
     {
       name: 'Exclusive Island Getaway',
@@ -86,7 +95,7 @@ async function main() {
       location: 'Bora Bora, French Polynesia',
       photo: 'island_getaway.jpg',
       category: { connect: { id: categoryLuxury.id } },
-      dat: 'JUN 09-13, 2025',
+      dat: 'Jun 09-13, 2025',
     },
     {
       name: 'Surf Break',
@@ -97,7 +106,7 @@ async function main() {
       location: 'Hawaii, Waikiki Beach',
       photo: 'surf_break.jpg',
       category: { connect: { id: categoryAdventure.id } },
-      dat: 'JUN 09-16, 2025',
+      dat: 'Jun 09-16, 2025',
     },
     {
       name: 'Tropical Yoga',
@@ -108,7 +117,7 @@ async function main() {
       location: 'Seychelles',
       photo: 'tropical_yoga.jpg',
       category: { connect: { id: categoryRelaxation.id } },
-      dat: 'JUN 09-12, 2025',
+      dat: 'Jun 09-12, 2025',
     },
     {
       name: 'Northern Lights Expedition',
@@ -119,7 +128,7 @@ async function main() {
       location: 'Lapland, Finland',
       photo: 'northern_lights.jpg',
       category: { connect: { id: categoryAdventure.id } },
-      dat: 'JAN 10-14, 2026',
+      dat: 'Jan 10-14, 2026',
     },
     {
       name: 'Amazon River Adventure',
@@ -130,7 +139,7 @@ async function main() {
       location: 'Amazonia, Brazil',
       photo: 'amazon_river.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      dat: 'MAR 15-22, 2026',
+      dat: 'Mar 15-22, 2026',
     },
     {
       name: 'Safari in Masai Mara',
@@ -141,7 +150,7 @@ async function main() {
       location: 'Masai Mara, Kenya',
       photo: 'masai_mara_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
-      dat: 'FEB 20-28, 2026',
+      dat: 'Feb 20-28, 2026',
     },
   ];
 
