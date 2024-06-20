@@ -19,10 +19,21 @@ export class CartItemsService {
   }
 
   public async createCartItem(
-    cartItemData: Omit<CartItem, 'id' | 'createdAt' | 'updatedAt'>,
+    cartItemData: Omit<CartItem, 'id' | 'createdAt' | 'updatedAt'> & {
+      tourId: string;
+    },
   ): Promise<CartItem> {
+    const { tourId, ...rest } = cartItemData;
+
     try {
-      return await this.prismaService.cartItem.create({ data: cartItemData });
+      return await this.prismaService.cartItem.create({
+        data: {
+          ...rest,
+          tour: {
+            connect: { id: tourId },
+          },
+        },
+      });
     } catch (error) {
       if (error.code === 'P2002') {
         throw new ConflictException('CartItem with the same ID already exists');

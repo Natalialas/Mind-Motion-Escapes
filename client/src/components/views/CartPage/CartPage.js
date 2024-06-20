@@ -1,5 +1,3 @@
-// CartPage.js
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCartItemsRequest } from '../../../redux/cartRedux';
@@ -22,9 +20,13 @@ const CartPage = ({ userId }) => {
 
   return (
     <div className="cart-page">
-      {cartItems.map((item) => (
-        <CartItem key={item.id} product={item} />
-      ))}
+      {cartItems.length > 0 ? (
+        cartItems.map((item) => (
+          <CartItem key={item.id} product={item} />
+        ))
+      ) : (
+        <div>Your cart is empty</div>
+      )}
     </div>
   );
 };

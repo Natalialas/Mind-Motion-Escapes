@@ -5,7 +5,6 @@ import {
   IsNumber,
   Min,
   IsUUID,
-  IsArray,
   IsOptional,
   Length,
 } from 'class-validator';
@@ -63,10 +62,6 @@ export class CreateOrderDTO {
   @IsNumber()
   @Min(0)
   finalAmount: number;
-
-  @IsArray()
-  @IsOptional()
-  cartItems: CartItemDTO[];
 
   @IsNotEmpty()
   @IsUUID()

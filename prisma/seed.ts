@@ -3,7 +3,6 @@ const prisma = new PrismaClient();
 
 async function main() {
   await prisma.review.deleteMany({});
-  await prisma.cartItem.deleteMany({});
   await prisma.order.deleteMany({});
 
   await prisma.photo.deleteMany({});
@@ -221,22 +220,6 @@ async function main() {
     },
   });
 
-  const cartItem1 = await prisma.cartItem.create({
-    data: {
-      tourId: createdTours[0].id,
-      numberOfPeople: 2,
-      price: createdTours[0].price * 2,
-    },
-  });
-
-  const cartItem2 = await prisma.cartItem.create({
-    data: {
-      tourId: createdTours[1].id,
-      numberOfPeople: 1,
-      price: createdTours[1].price,
-    },
-  });
-
   await prisma.order.create({
     data: {
       clientName: 'Jane',
@@ -248,9 +231,6 @@ async function main() {
       userId: user1.id,
       status: 'Pending',
       comment: "Can't wait for the beach!",
-      items: {
-        connect: [{ id: cartItem1.id }, { id: cartItem2.id }],
-      },
     },
   });
 }

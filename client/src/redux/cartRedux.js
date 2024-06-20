@@ -5,7 +5,7 @@ import initialState from "./initialState";
 import { API_URL } from "../config";
 
 /* SELECTORS */
-export const getAllCartItems = (state) => state.cart.cartItems;
+export const getAllCartItems = (state) => state.cart.cartItems || [];
 export const getRequest = (state) => state.cart.requests;
 export const getItemById = (state, itemId) => state.cart.cartItems.find((item) => item.id === itemId);
 
@@ -54,11 +54,9 @@ export const addToCartRequest = (item) => {
       dispatch(startRequest({ name: ADD_TO_CART }));
   
       try {
-        // Tutaj należy sprawdzić, czy `item` zawiera wszystkie wymagane pola
         const { cartItems } = getState().cart;
         const existingProductIndex = cartItems.findIndex(product => product.id === item.id);
   
-        // Jeśli `existingProductIndex` nie jest -1, to znaczy że produkt już istnieje w koszyku
         if (existingProductIndex !== -1) {
           const updatedCartItems = [...cartItems];
           updatedCartItems[existingProductIndex] = {
@@ -67,14 +65,10 @@ export const addToCartRequest = (item) => {
           };
           dispatch(updateCart(updatedCartItems));
         } else {
-          // Dodaj nowy produkt do koszyka, upewniając się, że przekazujesz wszystkie wymagane dane
           await axios.post(`${API_URL}/cartitems`, {
-            productId: item.id,
             numberOfPeople: 1,
             price: item.price,
             tourId: item.tourId,
-             // Przykład wartości, którą należy dostosować do twojego przypadku
-            // Dodaj inne wymagane pola, takie jak size, comment itd., jeśli są wymagane
           });
   
           dispatch(addToCart({ ...item, quantity: 1 }));

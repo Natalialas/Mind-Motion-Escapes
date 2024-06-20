@@ -2,10 +2,16 @@ import React from 'react';
 import { Navbar, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './TopBar.module.scss';
 
 const TopBar = () => {
+  const navigate = useNavigate();
+
+  const handleCartClick = () => {
+    navigate(`/cartitems`);
+  };
+
   return (
     <Navbar expand="lg" className={styles.topbar}>
       <Container className={styles.container}>
@@ -24,9 +30,9 @@ const TopBar = () => {
           <NavLink to="/login" className={styles.link} activeClassName={styles.active}>
             Login
           </NavLink>
-          <NavLink to="/cart" className={styles.link} activeClassName={styles.active}>
+          <div className={styles.link} onClick={handleCartClick} style={{ cursor: 'pointer' }}>
             <FontAwesomeIcon icon={faShoppingCart} />
-          </NavLink>
+          </div>
         </div>
       </Container>
     </Navbar>

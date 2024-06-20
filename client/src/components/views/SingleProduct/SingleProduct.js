@@ -16,7 +16,7 @@ const SingleProduct = () => {
   }, [dispatch, id]);
 
   const handleAddToCart = () => {
-    dispatch(addToCartRequest(tour));
+    dispatch(addToCartRequest({ ...tour, tourId: tour.id }));
   };
 
   if (!tour) return <p>Loading...</p>;

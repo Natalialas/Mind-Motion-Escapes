@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/tours/:id" element={<SingleProduct />} />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cartitems" element={<CartPage />} />
         </Routes>
       <Footer />
    </main>

@@ -12,38 +12,22 @@ export class OrdersService {
   constructor(private prismaService: PrismaService) {}
 
   public async getAllOrders(): Promise<Order[]> {
-    return this.prismaService.order.findMany({
-      include: {
-        items: true,
-      },
-    });
+    return this.prismaService.order.findMany();
   }
 
   public async getOrderById(id: string): Promise<Order | null> {
     return this.prismaService.order.findUnique({
       where: { id },
-      include: {
-        items: true,
-      },
     });
   }
 
   public async createOrder(orderData: CreateOrderDTO): Promise<Order> {
-    const { cartItems, userId, ...rest } = orderData;
+    const { userId, ...rest } = orderData;
     try {
       return await this.prismaService.order.create({
         data: {
           ...rest,
           userId: userId,
-          items: {
-            create: cartItems.map((cartItem) => ({
-              ...cartItem,
-              orderId: '',
-              numberOfPeople: 1,
-              price: 0,
-              comment: '',
-            })),
-          },
         },
       });
     } catch (error) {
