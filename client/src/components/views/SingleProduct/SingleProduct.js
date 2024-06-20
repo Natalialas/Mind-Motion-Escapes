@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadSingleTourRequest, getTourById } from '../../../redux/toursRedux';
+import { addToCartRequest } from '../../../redux/cartRedux';
 import { IMAGES_URL } from '../../../config';
 import styles from './SingleProduct.module.scss';
 
@@ -14,6 +15,10 @@ const SingleProduct = () => {
     dispatch(loadSingleTourRequest(id));
   }, [dispatch, id]);
 
+  const handleAddToCart = () => {
+    dispatch(addToCartRequest(tour));
+  };
+
   if (!tour) return <p>Loading...</p>;
 
   return (
@@ -25,6 +30,7 @@ const SingleProduct = () => {
       <p className={styles.info}>Location: {tour.location}</p>
       <p className={styles.info}>Date: {tour.dat}</p>
       <p className={styles.info}>Duration: {tour.duration} days</p>
+      <button className={styles.addToCartButton} onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 };

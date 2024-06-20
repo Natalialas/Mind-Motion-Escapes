@@ -7,14 +7,11 @@ import {
   Param,
   Body,
   NotFoundException,
-  UseGuards,
 } from '@nestjs/common';
 import { CartItemsService } from './cartitems.service';
 import { CartItem } from '@prisma/client';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('cartitems')
-@UseGuards(JwtAuthGuard)
 export class CartItemsController {
   constructor(private readonly cartItemsService: CartItemsService) {}
 

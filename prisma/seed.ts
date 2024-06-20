@@ -223,21 +223,17 @@ async function main() {
 
   const cartItem1 = await prisma.cartItem.create({
     data: {
-      userId: user1.id,
       tourId: createdTours[0].id,
       numberOfPeople: 2,
       price: createdTours[0].price * 2,
-      comment: 'Looking forward to this trip!',
     },
   });
 
   const cartItem2 = await prisma.cartItem.create({
     data: {
-      userId: user1.id,
       tourId: createdTours[1].id,
       numberOfPeople: 1,
       price: createdTours[1].price,
-      comment: "Can't wait for the beach!",
     },
   });
 
@@ -251,6 +247,7 @@ async function main() {
       finalAmount: 800,
       userId: user1.id,
       status: 'Pending',
+      comment: "Can't wait for the beach!",
       items: {
         connect: [{ id: cartItem1.id }, { id: cartItem2.id }],
       },
