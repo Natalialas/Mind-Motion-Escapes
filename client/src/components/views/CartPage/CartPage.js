@@ -18,11 +18,13 @@ const CartPage = ({ userId }) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  console.log("Cart items:", cartItems); // Dodajemy logowanie
+
   return (
     <div className="cart-page">
       {cartItems.length > 0 ? (
         cartItems.map((item) => (
-          <CartItem key={item.id} product={item} />
+          <CartItem key={item.id} cartItem={item} /> // Zmieniamy 'product' na 'cartItem'
         ))
       ) : (
         <div>Your cart is empty</div>

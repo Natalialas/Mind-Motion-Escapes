@@ -11,11 +11,20 @@ export class CartItemsService {
   constructor(private prismaService: PrismaService) {}
 
   public async getAllCartItems(): Promise<CartItem[]> {
-    return this.prismaService.cartItem.findMany();
+    return this.prismaService.cartItem.findMany({
+      include: {
+        tour: true,
+      },
+    });
   }
 
   public async getCartItemById(id: string): Promise<CartItem | null> {
-    return this.prismaService.cartItem.findUnique({ where: { id } });
+    return this.prismaService.cartItem.findUnique({
+      where: { id },
+      include: {
+        tour: true,
+      },
+    });
   }
 
   public async createCartItem(
@@ -32,6 +41,9 @@ export class CartItemsService {
           tour: {
             connect: { id: tourId },
           },
+        },
+        include: {
+          tour: true,
         },
       });
     } catch (error) {
@@ -50,6 +62,9 @@ export class CartItemsService {
       return await this.prismaService.cartItem.update({
         where: { id },
         data: cartItemData,
+        include: {
+          tour: true,
+        },
       });
     } catch (error) {
       if (error.code === 'P2025') {
@@ -63,6 +78,11 @@ export class CartItemsService {
   }
 
   public async deleteCartItem(id: string): Promise<CartItem> {
-    return this.prismaService.cartItem.delete({ where: { id } });
+    return this.prismaService.cartItem.delete({
+      where: { id },
+      include: {
+        tour: true,
+      },
+    });
   }
 }
