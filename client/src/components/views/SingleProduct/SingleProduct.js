@@ -30,7 +30,7 @@ const SingleProduct = () => {
       <p className={styles.info}>Location: {tour.location}</p>
       <p className={styles.info}>Date: {tour.dat}</p>
       <p className={styles.info}>Duration: {tour.duration} days</p>
-      <button className={styles.addToCartButton} onClick={handleAddToCart}>Add to Cart</button>
+      <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
     </div>
   );
 };
