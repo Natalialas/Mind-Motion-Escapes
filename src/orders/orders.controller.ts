@@ -21,13 +21,11 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @Get('/')
-  @UseGuards(JwtAuthGuard)
   async getAllOrders(): Promise<Order[]> {
     return this.ordersService.getAllOrders();
   }
 
   @Get('/:id')
-  @UseGuards(JwtAuthGuard)
   async getOrderById(
     @Param('id', ParseUUIDPipe) id: string,
   ): Promise<Order | null> {
@@ -39,7 +37,6 @@ export class OrdersController {
   }
 
   @Post('/')
-  @UseGuards(JwtAuthGuard)
   async createOrder(@Body() orderData: CreateOrderDTO): Promise<Order> {
     return this.ordersService.createOrder(orderData);
   }
