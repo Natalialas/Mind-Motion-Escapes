@@ -27,7 +27,7 @@ export class OrdersService {
       return await this.prismaService.order.create({
         data: {
           ...rest,
-          userId: userId,
+          userId: userId || null,
         },
       });
     } catch (error) {

@@ -9,6 +9,7 @@ import {
   NotFoundException,
   UseGuards,
   ParseUUIDPipe,
+  Req,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { Order } from '@prisma/client';
@@ -37,8 +38,13 @@ export class OrdersController {
   }
 
   @Post('/')
-  async createOrder(@Body() orderData: CreateOrderDTO): Promise<Order> {
-    return this.ordersService.createOrder(orderData);
+  @UseGuards(JwtAuthGuard)
+  async createOrder(
+    @Body() orderData: CreateOrderDTO,
+    @Req() req: any,
+  ): Promise<Order> {
+    const userId = req.user.id;
+    return this.ordersService.createOrder({ ...orderData, userId });
   }
 
   @Put('/:id')
