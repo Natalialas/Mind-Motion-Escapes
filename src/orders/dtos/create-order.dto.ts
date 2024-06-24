@@ -1,73 +1,48 @@
-import {
-  IsString,
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  Min,
-  IsUUID,
-  IsOptional,
-  Length,
-} from 'class-validator';
+// create-order.dto.ts
 
-export class CartItemDTO {
+import { IsString, IsUUID, IsNotEmpty, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+
+export class TourDTO {
   @IsNotEmpty()
   @IsUUID()
-  tourId: string;
+  id: string;
 
   @IsNotEmpty()
-  @IsUUID()
-  userId: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @Min(1)
-  numberOfPeople: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @Min(0)
-  price: number;
-
-  @IsOptional()
   @IsString()
-  comment?: string;
+  name: string;
 }
 
 export class CreateOrderDTO {
   @IsNotEmpty()
   @IsString()
-  @Length(2, 30)
   clientName: string;
 
   @IsNotEmpty()
   @IsString()
-  @Length(2, 30)
   clientSurname: string;
 
   @IsNotEmpty()
-  @IsEmail()
+  @IsString()
   email: string;
 
   @IsNotEmpty()
   @IsString()
-  @Length(9, 15)
   phone: string;
 
   @IsNotEmpty()
   @IsString()
-  @Length(10, 50)
   address: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  @Min(0)
-  finalAmount: number;
-
-  @IsNotEmpty()
-  @IsUUID()
-  userId: string;
 
   @IsNotEmpty()
   @IsString()
   status: string;
+
+  @ValidateNested({ each: true })
+  @Type(() => TourDTO)
+  tours: TourDTO[];
+
+  finalAmount: number;
+  comment?: string;
+  userId?: string;
 }

@@ -38,12 +38,14 @@ export class OrdersController {
   }
 
   @Post('/')
-  @UseGuards(JwtAuthGuard)
   async createOrder(
     @Body() orderData: CreateOrderDTO,
     @Req() req: any,
   ): Promise<Order> {
-    const userId = req.user.id;
+    console.log('Received order data:', orderData);
+    console.log('User ID:', req.user?.id || 'Guest');
+
+    const userId = req.user?.id || null;
     return this.ordersService.createOrder({ ...orderData, userId });
   }
 

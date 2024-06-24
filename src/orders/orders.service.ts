@@ -22,22 +22,23 @@ export class OrdersService {
   }
 
   public async createOrder(orderData: CreateOrderDTO): Promise<Order> {
-    const { userId, ...rest } = orderData;
+    const { userId, tours, ...rest } = orderData;
     try {
-      return await this.prismaService.order.create({
-        data: {
-          ...rest,
-          userId: userId || null,
+      const createOrderData = {
+        ...rest,
+        tours: {
+          connect: tours.map((tour) => ({ id: tour.id })),
         },
+        user: userId ? { connect: { id: userId } } : undefined,
+      };
+
+      return await this.prismaService.order.create({
+        data: createOrderData,
       });
     } catch (error) {
-      if (error.code === 'P2002') {
-        throw new ConflictException('Order with the same ID already exists');
-      }
-      throw error;
+      throw new Error(`Failed to create order: ${error.message}`);
     }
   }
-  
 
   public async updateOrder(id: string, orderData: Order): Promise<Order> {
     try {

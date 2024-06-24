@@ -44,26 +44,34 @@ export const createOrderRequest = (newOrder) => {
   return async (dispatch) => {
     dispatch(startRequest({ name: CREATE_ORDER }));
     try {
+      console.log('Order data being sent:', newOrder);
       const res = await axios.post(
         `${API_URL}/orders`,
         {
-            clientName: newOrder.clientName,
-            clientSurname: newOrder.clientSurname,
-            email: newOrder.email,
-            phone: newOrder.phone,
-            address: newOrder.address,
-            finalAmount: newOrder.finalAmount,
-            comment: newOrder.comment,
-            status: newOrder.status,
-            tours: newOrder.tours.map(tourId => ({ id: tourId }))
+          clientName: newOrder.clientName,
+          clientSurname: newOrder.clientSurname,
+          email: newOrder.email,
+          phone: newOrder.phone,
+          address: newOrder.address,
+          finalAmount: newOrder.finalAmount,
+          comment: newOrder.comment || '',
+          status: newOrder.status,
+          tours: {
+            create: newOrder.tours.map(tour => ({
+              tour: {
+                connect: { id: tour.id }
+              },
+              name: tour.name
+            }))
+          },
         }
       );
 
       dispatch(createOrder(res.data));
-      
       dispatch(endRequest({ name: CREATE_ORDER }));
       dispatch(clearCart());
     } catch (e) {
+      console.error('Order submission failed:', e);
       dispatch(errorRequest({ name: CREATE_ORDER, error: e.message }));
     }
   };

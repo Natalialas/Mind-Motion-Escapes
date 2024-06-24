@@ -27,7 +27,10 @@ const OrderForm = () => {
     const orderData = {
       ...formData,
       finalAmount: cartItems.reduce((total, item) => total + item.price * item.numberOfPeople, 0),
-      tours: cartItems.map(item => item.tour.id),
+      tours: cartItems.map(item => ({
+        id: item.tour.id,
+        name: item.tour.name
+      })),
       status: 'pending',
     };
 
