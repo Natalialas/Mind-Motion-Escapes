@@ -56,14 +56,10 @@ export const createOrderRequest = (newOrder) => {
           finalAmount: newOrder.finalAmount,
           comment: newOrder.comment || '',
           status: newOrder.status,
-          tours: {
-            create: newOrder.tours.map(tour => ({
-              tour: {
-                connect: { id: tour.id }
-              },
-              name: tour.name
-            }))
-          },
+          tours:newOrder.tours.map(tour => ({
+            id: tour.id,
+            name: tour.name
+          })),
         }
       );
 
