@@ -1,56 +1,66 @@
+@import '../../../styles/settings.scss';
+
 .blog {
-    background-color: #f8f8f8;
-    padding: 20px;
-  }
-  
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .block {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-  }
-  
-  .blockTitle {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .details {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-  }
-  
-  .detailsTitle {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-  }
-  
-  .number {
-    font-size: 1.2rem;
-  }
-  
-  button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 0;
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  button:focus {
-    outline: 2px solid blue;
-  }
-  
-  button:hover {
-    text-decoration: none;
-  }
-  
+  background-color: $color-creamy;
+  padding: 20px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.block {
+  flex: 1;
+  max-width: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.blockTitle {
+  font-size: $font-medium;
+  margin-bottom: 10px;
+  color: $color-dark;
+}
+
+button {
+  background: none;
+  border: none;
+  color: $color-dark;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: $font-regular;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+button:hover {
+  color: $color-orange;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 20px;
+  font-size: $font-light;
+  color: $color-dark;
+}
