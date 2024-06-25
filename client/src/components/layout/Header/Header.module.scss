@@ -1,59 +1,103 @@
 @import '../../../styles/settings.scss';
 
 .header {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: $color-light;
-    padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $color-light;
+  padding: 20px;
 }
 
 .heading {
     position: relative;
     width: 100%;
-    font-size: 7em;
+    font-size: 10em;
     margin-bottom: 0.5em;
     font-weight: $font-semiBold;
     line-height: 1.2;
+
+  @media (max-width: 1400px) {
+    font-size: 8em;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 7em;
+  }
+
+  @media (max-width: 990px) {
+    font-size: 6em;
+  }
+
+  @media (max-width: 830px) {
+    font-size: 5em;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 4em;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 3em;
+  }
+
+  @media (max-width: 440px) {
+    font-size: 2em;
+  }
 }
 
 .line1 {
-    display: block;
-    text-align: left;
-    margin-left: 38%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  display: block;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin-left: 25%;
 }
 
 .line2 {
-    display: block;
-    text-align: right;
-    margin-right: 35%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  display: block;
+  text-align: right;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin-right: 18%;
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    font-weight: $font-medium;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  font-weight: $font-medium;
+
+  @media (max-width: 570px) {
+    font-size: 2em;
+  }
+
+  @media (max-width: 440px) {
+    font-size: 1.5em;
+  }
 }
 
 p {
-    font-size: 1.8em;
-    font-weight: $font-regular;
+  font-size: 1.8em;
+  font-weight: $font-regular;
+
+  @media (max-width: 570px) {
+    font-size: 1.5em;
+  }
+
+  @media (max-width: 440px) {
+    font-size: 1.2em;
+  }
 }
