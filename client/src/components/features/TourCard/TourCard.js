@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import styles from './TourCard.module.scss';
 import { IMAGES_URL } from '../../../config';
@@ -12,16 +11,19 @@ const TourCard = ({ tour }) => {
   };
 
   return (
-    <Card className={styles.tourCard} onClick={handleCardClick}>
+    <div className={styles.tourCard}>
       <div className={styles.imageContainer}>
-        <Card.Img variant="top" src={`${IMAGES_URL}/${tour.photo}`} className={styles.cardImage} />
+        <img src={`${IMAGES_URL}/${tour.photo}`} alt={tour.name} className={styles.cardImage} />
+        <div className={styles.overlay}>
+          <h2 className={styles.name}>{tour.name}</h2>
+          <p className={styles.location}>{tour.location}</p>
+          <p className={styles.dat}>{tour.dat}</p>
+          <button className={styles.button} onClick={handleCardClick}>
+            View Details
+          </button>
+        </div>
       </div>
-      <div className={styles.overlay}>
-        <Card.Title className={styles.name}>{tour.name}</Card.Title>
-        <Card.Text className={styles.location}>{tour.location}</Card.Text>
-        <Card.Text className={styles.dat}>{tour.dat}</Card.Text>
-      </div>
-    </Card>
+    </div>
   );
 };
 
