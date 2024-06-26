@@ -2,65 +2,98 @@
 
 .blog {
   background-color: $color-creamy;
-  padding: 20px;
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  min-height: 300px;
-}
+  padding: 40px 0;
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.logo {
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 20px;
-}
+    @media (min-width: 768px) {
+      flex-direction: column;
+    }
 
-.content {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-bottom: 20px;
-}
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
 
-.block {
-  flex: 1;
-  max-width: 200px;
-  margin: 10px;
-  text-align: center;
-}
+      @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+      }
 
-.blockTitle {
-  font-size: $font-medium;
-  margin-bottom: 10px;
-  color: $color-dark;
-}
+      .logo {
+        max-width: 200px;
+        margin-right: 20px;
+      }
 
-button {
-  background: none;
-  border: none;
-  color: $color-dark;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: $font-regular;
-  margin: 5px 0;
-  transition: color 0.3s ease;
-}
+      .blocks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-button:hover {
-  color: $color-orange;
-}
+        @media (min-width: 768px) {
+          flex-direction: row;
+          margin-left: 200px;
+        }
 
-.text-center {
-  text-align: center;
-  margin-top: 20px;
-  font-size: $font-light;
-  color: $color-dark;
+        .block {
+          margin: 10px 0;
+          flex: 1;
+          max-width: 200px;
+
+          @media (min-width: 768px) {
+            margin: 0 70px;
+          }
+
+          .blockTitle {
+            font-weight: $font-bold;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 2rem;
+            color: #4b4b4b;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+              margin-bottom: 5px;
+
+              button {
+                background: none;
+                border: none;
+                color: $color-dark;
+                text-align: left;
+                padding: 5px 0;
+                cursor: pointer;
+                font-size: 1rem;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footerBottom {
+      margin-top: 20px;
+      width: 100%;
+      border-top: 1px solid #dee2e6;
+      padding-top: 10px;
+      text-align: center;
+
+      p {
+        margin: 0;
+        color: #6c757d;
+      }
+    }
+  }
 }
