@@ -80,7 +80,7 @@ async function main() {
         "Discover the timeless wonders of ancient Rome's historical landmarks, where every step echoes with rich cultural heritage and architectural marvels.",
       price: 1200,
       duration: 4,
-      location: 'Rome, Italy',
+      location: ' ',
       photo: 'historical_landmarks.jpg',
       category: { connect: { id: categoryHeritage.id } },
       dat: 'Oct 21-24, 2024',
