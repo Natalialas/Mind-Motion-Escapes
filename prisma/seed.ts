@@ -51,6 +51,15 @@ async function main() {
       photo: 'mountain_hiking.jpg',
       category: { connect: { id: categoryAdventure.id } },
       dat: 'Jun 25 - Jul 05, 2025',
+      photos: {
+        create: [
+          { url: 'Amazon River Adventure/amazon1.jpg' },
+          { url: 'Amazon River Adventure/amazon2.jpg' },
+          { url: 'Amazon River Adventure/amazon3.jpg' },
+          { url: 'Amazon River Adventure/amazon4.jpg' },
+          { url: 'Amazon River Adventure/amazon5.jpg' },
+        ],
+      },
     },
     {
       name: 'Tropical Oasis Escape',
@@ -62,6 +71,15 @@ async function main() {
       photo: 'beach_relaxation.jpg',
       category: { connect: { id: categoryRelaxation.id } },
       dat: 'Sep 20-24, 2025',
+      photos: {
+        create: [
+          { url: 'Tropical Oasis Escape/oasis1.jpg' },
+          { url: 'Tropical Oasis Escape/oasis2.jpg' },
+          { url: 'Tropical Oasis Escape/oasis3.jpg' },
+          { url: 'Tropical Oasis Escape/oasis4.jpg' },
+          { url: 'Tropical Oasis Escape/oasis5.jpg' },
+        ],
+      },
     },
     {
       name: 'Serengeti Wildlife Expedition',
@@ -73,6 +91,15 @@ async function main() {
       photo: 'wildlife_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
       dat: 'Jul 15-20, 2025',
+      photos: {
+        create: [
+          { url: 'Serengeti Wildlife Expedition/wildlife1.jpg' },
+          { url: 'Serengeti Wildlife Expedition/wildlife2.jpg' },
+          { url: 'Serengeti Wildlife Expedition/wildlife3.jpg' },
+          { url: 'Serengeti Wildlife Expedition/wildlife4.jpg' },
+          { url: 'Serengeti Wildlife Expedition/wildlife5.jpg' },
+        ],
+      },
     },
     {
       name: 'Eternal Rome',
@@ -84,6 +111,15 @@ async function main() {
       photo: 'historical_landmarks.jpg',
       category: { connect: { id: categoryHeritage.id } },
       dat: 'Oct 21-24, 2024',
+      photos: {
+        create: [
+          { url: 'Eternal Rome/rome1.jpg' },
+          { url: 'Eternal Rome/rome2.jpg' },
+          { url: 'Eternal Rome/rome3.jpg' },
+          { url: 'Eternal Rome/rome4.jpg' },
+          { url: 'Eternal Rome/rome5.jpg' },
+        ],
+      },
     },
     {
       name: 'Exclusive Island Getaway',
@@ -95,6 +131,15 @@ async function main() {
       photo: 'island_getaway.jpg',
       category: { connect: { id: categoryLuxury.id } },
       dat: 'Jun 09-13, 2025',
+      photos: {
+        create: [
+          { url: 'Exclusive Island Getaway/island1.jpg' },
+          { url: 'Exclusive Island Getaway/island2.jpg' },
+          { url: 'Exclusive Island Getaway/island3.jpg' },
+          { url: 'Exclusive Island Getaway/island4.jpg' },
+          { url: 'Exclusive Island Getaway/island5.jpg' },
+        ],
+      },
     },
     {
       name: 'Surf Break',
@@ -106,6 +151,15 @@ async function main() {
       photo: 'surf_break.jpg',
       category: { connect: { id: categoryAdventure.id } },
       dat: 'Jun 09-16, 2025',
+      photos: {
+        create: [
+          { url: 'Surf Break/surf1.jpg' },
+          { url: 'Surf Break/surf2.jpg' },
+          { url: 'Surf Break/surf3.jpg' },
+          { url: 'Surf Break/surf4.jpg' },
+          { url: 'Surf Break/surf5.jpg' },
+        ],
+      },
     },
     {
       name: 'Tropical Yoga',
@@ -117,6 +171,15 @@ async function main() {
       photo: 'tropical_yoga.jpg',
       category: { connect: { id: categoryRelaxation.id } },
       dat: 'Jun 09-12, 2025',
+      photos: {
+        create: [
+          { url: 'Tropical Yoga/yoga1.jpg' },
+          { url: 'Tropical Yoga/yoga2.jpg' },
+          { url: 'Tropical Yoga/yoga3.jpg' },
+          { url: 'Tropical Yoga/yoga4.jpg' },
+          { url: 'Tropical Yoga/yoga5.jpg' },
+        ],
+      },
     },
     {
       name: 'Northern Lights Expedition',
@@ -128,6 +191,15 @@ async function main() {
       photo: 'northern_lights.jpg',
       category: { connect: { id: categoryAdventure.id } },
       dat: 'Jan 10-14, 2026',
+      photos: {
+        create: [
+          { url: 'Northern Lights Expedition/lights1.jpg' },
+          { url: 'Northern Lights Expedition/lights2.jpg' },
+          { url: 'Northern Lights Expedition/lights3.jpg' },
+          { url: 'Northern Lights Expedition/lights4.jpg' },
+          { url: 'Northern Lights Expedition/lights5.jpg' },
+        ],
+      },
     },
     {
       name: 'Amazon River Adventure',
@@ -139,6 +211,15 @@ async function main() {
       photo: 'amazon_river.jpg',
       category: { connect: { id: categoryWildlife.id } },
       dat: 'Mar 15-22, 2026',
+      photos: {
+        create: [
+          { url: 'Amazon River Adventure/amazon1.jpg' },
+          { url: 'Amazon River Adventure/amazon2.jpg' },
+          { url: 'Amazon River Adventure/amazon3.jpg' },
+          { url: 'Amazon River Adventure/amazon4.jpg' },
+          { url: 'Amazon River Adventure/amazon5.jpg' },
+        ],
+      },
     },
     {
       name: 'Safari in Masai Mara',
@@ -150,113 +231,25 @@ async function main() {
       photo: 'masai_mara_safari.jpg',
       category: { connect: { id: categoryWildlife.id } },
       dat: 'Feb 20-28, 2026',
+      photos: {
+        create: [
+          { url: 'Safari in Masai Mara/safari1.jpg' },
+          { url: 'Safari in Masai Mara/safari2.jpg' },
+          { url: 'Safari in Masai Mara/safari3.jpg' },
+          { url: 'Safari in Masai Mara/safari4.jpg' },
+          { url: 'Safari in Masai Mara/safari5.jpg' },
+        ],
+      },
     },
   ];
 
-  const createdTours = [];
   for (const tourData of toursData) {
-    const createdTour = await prisma.tour.create({
-      data: tourData,
+    await prisma.tour.create({
+      data: {
+        ...tourData,
+      },
     });
-    createdTours.push(createdTour);
   }
-
-  const photosData = [
-    { url: 'mountain_hiking.jpg', tourId: createdTours[0].id },
-    { url: 'beach_relaxation.jpg', tourId: createdTours[1].id },
-    { url: 'wildlife_safari.jpg', tourId: createdTours[2].id },
-    { url: 'historical_landmarks.jpg', tourId: createdTours[3].id },
-    { url: 'island_getaway.jpg', tourId: createdTours[4].id },
-    { url: 'surf_break.jpg', tourId: createdTours[5].id },
-    { url: 'tropical_yoga.jpg', tourId: createdTours[6].id },
-    { url: 'northern_lights.jpg', tourId: createdTours[7].id },
-    { url: 'amazon_river.jpg', tourId: createdTours[8].id },
-    { url: 'masai_mara_safari.jpg', tourId: createdTours[9].id },
-
-    { url: 'Amazon River Adventure/amazon1.jpg', tourId: createdTours[0].id },
-    { url: 'Amazon River Adventure/amazon2.jpg', tourId: createdTours[0].id },
-    { url: 'Amazon River Adventure/amazon3.jpg', tourId: createdTours[0].id },
-    { url: 'Amazon River Adventure/amazon4.jpg', tourId: createdTours[0].id },
-    { url: 'Amazon River Adventure/amazon5.jpg', tourId: createdTours[0].id },
-    { url: 'Tropical Oasis Escape/oasis1.jpg', tourId: createdTours[1].id },
-    { url: 'Tropical Oasis Escape/oasis2.jpg', tourId: createdTours[1].id },
-    { url: 'Tropical Oasis Escape/oasis3.jpg', tourId: createdTours[1].id },
-    { url: 'Tropical Oasis Escape/oasis4.jpg', tourId: createdTours[1].id },
-    { url: 'Tropical Oasis Escape/oasis5.jpg', tourId: createdTours[1].id },
-    {
-      url: 'Serengeti Wildlife Expedition/wildlife1.jpg',
-      tourId: createdTours[2].id,
-    },
-    {
-      url: 'Serengeti Wildlife Expedition/wildlife2.jpg',
-      tourId: createdTours[2].id,
-    },
-    {
-      url: 'Serengeti Wildlife Expedition/wildlife3.jpg',
-      tourId: createdTours[2].id,
-    },
-    {
-      url: 'Serengeti Wildlife Expedition/wildlife4.jpg',
-      tourId: createdTours[2].id,
-    },
-    {
-      url: 'Serengeti Wildlife Expedition/wildlife5.jpg',
-      tourId: createdTours[2].id,
-    },
-    { url: 'Eternal Rome/rome1.jpg', tourId: createdTours[3].id },
-    { url: 'Eternal Rome/rome2.jpg', tourId: createdTours[3].id },
-    { url: 'Eternal Rome/rome3.jpg', tourId: createdTours[3].id },
-    { url: 'Eternal Rome/rome4.jpg', tourId: createdTours[3].id },
-    { url: 'Eternal Rome/rome5.jpg', tourId: createdTours[3].id },
-    { url: 'Exclusive Island Getaway/island1.jpg', tourId: createdTours[4].id },
-    { url: 'Exclusive Island Getaway/island2.jpg', tourId: createdTours[4].id },
-    { url: 'Exclusive Island Getaway/island3.jpg', tourId: createdTours[4].id },
-    { url: 'Exclusive Island Getaway/island4.jpg', tourId: createdTours[4].id },
-    { url: 'Exclusive Island Getaway/island5.jpg', tourId: createdTours[4].id },
-    { url: 'Surf Break/surf1.jpg', tourId: createdTours[5].id },
-    { url: 'Surf Break/surf2.jpg', tourId: createdTours[5].id },
-    { url: 'Surf Break/surf3.jpg', tourId: createdTours[5].id },
-    { url: 'Surf Break/surf4.jpg', tourId: createdTours[5].id },
-    { url: 'Surf Break/surf5.jpg', tourId: createdTours[5].id },
-    { url: 'Tropical Yoga/yoga1.jpg', tourId: createdTours[6].id },
-    { url: 'Tropical Yoga/yoga2.jpg', tourId: createdTours[6].id },
-    { url: 'Tropical Yoga/yoga3.jpg', tourId: createdTours[6].id },
-    { url: 'Tropical Yoga/yoga4.jpg', tourId: createdTours[6].id },
-    { url: 'Tropical Yoga/yoga5.jpg', tourId: createdTours[6].id },
-    {
-      url: 'Northern Lights Expedition/lights1.jpg',
-      tourId: createdTours[7].id,
-    },
-    {
-      url: 'Northern Lights Expedition/lights2.jpg',
-      tourId: createdTours[7].id,
-    },
-    {
-      url: 'Northern Lights Expedition/lights3.jpg',
-      tourId: createdTours[7].id,
-    },
-    {
-      url: 'Northern Lights Expedition/lights4.jpg',
-      tourId: createdTours[7].id,
-    },
-    {
-      url: 'Northern Lights Expedition/lights5.jpg',
-      tourId: createdTours[7].id,
-    },
-    { url: 'Amazon River Adventure/amazon1.jpg', tourId: createdTours[8].id },
-    { url: 'Amazon River Adventure/amazon2.jpg', tourId: createdTours[8].id },
-    { url: 'Amazon River Adventure/amazon3.jpg', tourId: createdTours[8].id },
-    { url: 'Amazon River Adventure/amazon4.jpg', tourId: createdTours[8].id },
-    { url: 'Amazon River Adventure/amazon5.jpg', tourId: createdTours[8].id },
-    { url: 'Safari in Masai Mara/safari1.jpg', tourId: createdTours[9].id },
-    { url: 'Safari in Masai Mara/safari2.jpg', tourId: createdTours[9].id },
-    { url: 'Safari in Masai Mara/safari3.jpg', tourId: createdTours[9].id },
-    { url: 'Safari in Masai Mara/safari4.jpg', tourId: createdTours[9].id },
-    { url: 'Safari in Masai Mara/safari5.jpg', tourId: createdTours[9].id },
-  ];
-  await prisma.photo.createMany({
-    data: photosData,
-  });
 
   const user1 = await prisma.user.create({
     data: {
@@ -289,15 +282,6 @@ async function main() {
           hashedPassword: 'hashed_password2',
         },
       },
-    },
-  });
-
-  await prisma.review.create({
-    data: {
-      rating: 5,
-      comment: 'Amazing experience!',
-      userId: user1.id,
-      tourId: createdTours[0].id,
     },
   });
 

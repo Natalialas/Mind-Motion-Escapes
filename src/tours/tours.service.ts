@@ -19,6 +19,9 @@ export class ToursService {
   public getById(id: string): Promise<Tour | null> {
     return this.prismaService.tour.findUnique({
       where: { id },
+      include: {
+        photos: true,
+      },
     });
   }
 

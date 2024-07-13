@@ -21,6 +21,8 @@ const SingleProduct = () => {
 
   if (!tour) return <p>Loading...</p>;
 
+  console.log('Tour data:', tour);
+
   return (
     <div className={styles.singleProduct}>
       <h1 className={styles.productName}>{tour.name}</h1>
@@ -30,14 +32,9 @@ const SingleProduct = () => {
       <p className={styles.info}>Location: {tour.location}</p>
       <p className={styles.info}>Date: {tour.dat}</p>
       <p className={styles.info}>Duration: {tour.duration} days</p>
-
-      {/* Display additional photos */}
       <div className={styles.additionalPhotos}>
-        {tour.photos.map((photo) => (
-          <img key={photo.id} src={`${IMAGES_URL}/${photo.url}`} alt={tour.name} className={styles.additionalPhoto} />
-        ))}
+      <img src={`${IMAGES_URL}/${tour.photos}`} alt={tour.name} className={styles.additionalPhoto} />
       </div>
-
       <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
     </div>
   );
