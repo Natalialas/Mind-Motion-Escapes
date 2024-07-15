@@ -15,13 +15,17 @@ const SingleProduct = () => {
     dispatch(loadSingleTourRequest(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (tour) {
+      console.log('Tour data in component:', tour);
+    }
+  }, [tour]);
+
   const handleAddToCart = () => {
     dispatch(addToCartRequest({ ...tour, tourId: tour.id }));
   };
 
   if (!tour) return <p>Loading...</p>;
-
-  console.log('Tour data:', tour);
 
   return (
     <div className={styles.singleProduct}>
@@ -33,7 +37,14 @@ const SingleProduct = () => {
       <p className={styles.info}>Date: {tour.dat}</p>
       <p className={styles.info}>Duration: {tour.duration} days</p>
       <div className={styles.additionalPhotos}>
-      <img src={`${IMAGES_URL}/${tour.photos}`} alt={tour.name} className={styles.additionalPhoto} />
+        {tour.photos && tour.photos.map((photo, index) => (
+          <img 
+            key={index} 
+            src={`${IMAGES_URL}/${photo.url}`} 
+            alt={`${tour.name} additional view ${index + 1}`} 
+            className={styles.additionalPhoto} 
+          />
+        ))}
       </div>
       <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
     </div>

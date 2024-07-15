@@ -6,7 +6,9 @@ import { API_URL } from "../config";
 export const getAllTours = (state) => state.tours;
 
 export const getTourById = (state, tourId) => {
-  return state.tours.find((tour) => tour.id === tourId);
+  const tour = state.tours.find(tour => tour.id === tourId);
+  console.log('Selected tour:', tour);  // Log the selected tour data
+  return tour;
 }
 
 /* ACTIONS */
@@ -51,6 +53,7 @@ export const loadSingleTourRequest = (id) => {
     
     try {
       let res = await axios.get(`${API_URL}/tours/${id}`);
+      console.log('Fetched tour data:', res.data);
       dispatch(fetchSingleTour(res.data));
       dispatch(endRequest({ name: requestName }));
     } catch (e) {
@@ -68,6 +71,7 @@ export default function toursReducer(state = initialState, action = {}) {
       const updatedTours = state.tours.map(tour =>
         tour.id === action.payload.id ? action.payload : tour
       );
+      console.log('Updated tours:', updatedTours);
       return {
         ...state,
         tours: updatedTours
