@@ -1,4 +1,3 @@
-// SingleProduct.js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -16,12 +15,6 @@ const SingleProduct = () => {
     dispatch(loadSingleTourRequest(id));
   }, [dispatch, id]);
 
-  useEffect(() => {
-    if (tour) {
-      console.log('Tour data in component:', tour);
-    }
-  }, [tour]);
-
   const handleAddToCart = () => {
     dispatch(addToCartRequest({ ...tour, tourId: tour.id }));
   };
@@ -30,13 +23,18 @@ const SingleProduct = () => {
 
   return (
     <div className={styles.singleProduct}>
-      <h1 className={styles.productName}>{tour.name}</h1>
-      <img src={`${IMAGES_URL}/${tour.photo}`} alt={tour.name} className={styles.photo} />
-      <p className={styles.description}>{tour.description}</p>
-      <p className={styles.info}>Price: ${tour.price}</p>
-      <p className={styles.info}>Location: {tour.location}</p>
-      <p className={styles.info}>Date: {tour.dat}</p>
-      <p className={styles.info}>Duration: {tour.duration} days</p>
+      <div className={styles.mainContent}>
+        <img src={`${IMAGES_URL}/${tour.photo}`} alt={tour.name} className={styles.photo} />
+        <div className={styles.textContent}>
+          <h1 className={styles.productName}>{tour.name}</h1>
+          <p className={styles.description}>{tour.description}</p>
+          <p className={styles.info}><strong>Price:</strong> ${tour.price}</p>
+          <p className={styles.info}><strong>Location:</strong> {tour.location}</p>
+          <p className={styles.info}><strong>Date:</strong> {tour.dat}</p>
+          <p className={styles.info}><strong>Duration:</strong> {tour.duration} days</p>
+          <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
+        </div>
+      </div>
       <div className={styles.additionalPhotos}>
         {tour.photos && tour.photos.map((photo, index) => (
           <img
@@ -47,7 +45,6 @@ const SingleProduct = () => {
           />
         ))}
       </div>
-      <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
     </div>
   );
 };

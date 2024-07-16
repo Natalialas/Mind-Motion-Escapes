@@ -1,7 +1,7 @@
 // initialState.js
 const initialState = {
     tours: {
-      tours: [], // Initialize as an array
+      tours: [],
     },
     cartItems: [],
     orders: [],
