@@ -1,3 +1,4 @@
+// CarouselTours.js
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Carousel } from 'react-bootstrap';
@@ -14,6 +15,11 @@ const CarouselTours = () => {
     dispatch(loadToursRequest());
   }, [dispatch]);
 
+  if (!Array.isArray(allTours)) {
+    console.error('allTours is not an array:', allTours);
+    return <div>Error loading tours</div>;
+  }
+
   const firstSixTours = allTours.slice(0, 6);
   const toursCount = firstSixTours.length;
 
@@ -23,12 +29,8 @@ const CarouselTours = () => {
 
   const getSlides = () => {
     const slides = [];
-    for (let i = 0; i < toursCount; i++) {
-      const slideTours = [];
-      for (let j = 0; j < 3; j++) {
-        slideTours.push(firstSixTours[(i + j) % toursCount]);
-      }
-      slides.push(slideTours);
+    for (let i = 0; i < toursCount; i += 3) {
+      slides.push(firstSixTours.slice(i, i + 3));
     }
     return slides;
   };

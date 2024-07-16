@@ -1,10 +1,11 @@
-/* INITIAL STATE */
-
+// initialState.js
 const initialState = {
-    tours: [],
+    tours: {
+      tours: [], // Initialize as an array
+    },
     cartItems: [],
     orders: [],
     requests: {},
-};
-    
-export default initialState;
+  };
+  
+  export default initialState;
