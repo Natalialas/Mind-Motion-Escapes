@@ -60,33 +60,34 @@ export const addToCartRequest = (item) => {
     try {
       const { cartItems } = getState().cart;
       
-      const existingProductIndex = cartItems.findIndex(product => product.tour.id === item.id);
+      const existingProductIndex = cartItems.findIndex(product => product.tour.id === item.tourId);
 
       if (existingProductIndex !== -1) {
         const updatedCartItems = [...cartItems];
         updatedCartItems[existingProductIndex] = {
           ...updatedCartItems[existingProductIndex],
-          numberOfPeople: updatedCartItems[existingProductIndex].numberOfPeople + 1,
+          numberOfPeople: updatedCartItems[existingProductIndex].numberOfPeople + item.numberOfPeople,
         };
 
         await axios.put(`${API_URL}/cartitems/${updatedCartItems[existingProductIndex].id}`, {
           numberOfPeople: updatedCartItems[existingProductIndex].numberOfPeople,
           price: updatedCartItems[existingProductIndex].price,
-          tourId: updatedCartItems[existingProductIndex].tour.id,
+          tourId: updatedCartItems[existingProductIndex].tourId,
         });
 
         dispatch(updateCart(updatedCartItems));
       } else {
+        
         const res = await axios.post(`${API_URL}/cartitems`, {
-          numberOfPeople: 1,
+          numberOfPeople: item.numberOfPeople,
           price: item.price,
-          tourId: item.id,
+          tourId: item.tourId,
         });
         
         const newCartItem = {
           id: res.data.id,
           tour: item,
-          numberOfPeople: 1,
+          numberOfPeople: item.numberOfPeople,
           price: item.price,
         };
         dispatch(addToCart(newCartItem));
@@ -98,7 +99,6 @@ export const addToCartRequest = (item) => {
     }
   };
 };
-
 
 export const updateCartItemRequest = (existingItem) => {
   return async (dispatch) => {

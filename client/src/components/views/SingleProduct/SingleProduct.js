@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { loadSingleTourRequest, getTourById } from '../../../redux/toursRedux';
@@ -10,13 +10,14 @@ const SingleProduct = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const tour = useSelector((state) => getTourById(state, id));
+  const [numberOfPeople, setNumberOfPeople] = useState(1); // State for number of people
 
   useEffect(() => {
     dispatch(loadSingleTourRequest(id));
   }, [dispatch, id]);
 
   const handleAddToCart = () => {
-    dispatch(addToCartRequest({ ...tour, tourId: tour.id }));
+    dispatch(addToCartRequest({ ...tour, tourId: tour.id, numberOfPeople }));
   };
 
   if (!tour) return <p>Loading...</p>;
@@ -32,7 +33,21 @@ const SingleProduct = () => {
           <p className={styles.info}><strong>Location:</strong> {tour.location}</p>
           <p className={styles.info}><strong>Date:</strong> {tour.dat}</p>
           <p className={styles.info}><strong>Duration:</strong> {tour.duration} days</p>
-          <button className={styles.addToCartButton} onClick={handleAddToCart}>Book now</button>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="numberOfPeople" className={styles.label}>Select number of people:</label>
+            <input 
+              id="numberOfPeople"
+              type="number" 
+              value={numberOfPeople} 
+              onChange={(e) => setNumberOfPeople(Number(e.target.value))}
+              min="1" 
+              className={styles.numberInput}
+            />
+            <button className={styles.addToCartButton} onClick={handleAddToCart}>
+              Book now
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles.additionalPhotos}>
