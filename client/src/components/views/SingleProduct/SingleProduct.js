@@ -22,6 +22,7 @@ const SingleProduct = () => {
 
   if (!tour) return <p>Loading...</p>;
 
+  
   return (
     <div className={styles.singleProduct}>
       <div className={styles.mainContent}>
